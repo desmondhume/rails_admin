@@ -63,6 +63,7 @@
         case 'belongs_to_association':
           var control = '<select class="switch-additionnal-fieldsets input-small" value="' + field_operator + '" name="' + operator_name + '">' +
             '<option data-additional-fieldset="additional-fieldset"'  + (field_operator == "like"        ? 'selected="selected"' : '') + ' value="like">' + RailsAdmin.I18n.t("contains") + '</option>' +
+            '<option data-additional-fieldset="additional-fieldset"'  + (field_operator == "is_not"      ? 'selected="selected"' : '') + ' value="is_not">' + RailsAdmin.I18n.t("not_contains") + '</option>' +
             '<option data-additional-fieldset="additional-fieldset"'  + (field_operator == "is"          ? 'selected="selected"' : '') + ' value="is">' + RailsAdmin.I18n.t("is_exactly") + '</option>' +
             '<option data-additional-fieldset="additional-fieldset"'  + (field_operator == "starts_with" ? 'selected="selected"' : '') + ' value="starts_with">' + RailsAdmin.I18n.t("starts_with") + '</option>' +
             '<option data-additional-fieldset="additional-fieldset"'  + (field_operator == "ends_with"   ? 'selected="selected"' : '') + ' value="ends_with">' + RailsAdmin.I18n.t("ends_with") + '</option>' +
