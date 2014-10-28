@@ -199,11 +199,13 @@ module RailsAdmin
               "%#{@value.downcase}"
             when 'is', '='
               "#{@value.downcase}"
+            when 'is_not'
+              "%#{@value.downcase}%"
             else
               return
             end
           end
-          ["(LOWER(#{@column}) #{like_operator} ?)", @value]
+          @operator == 'is_not' ? ["(LOWER(#{@column}) #{not_like_operator} ?)", @value] : ["(LOWER(#{@column}) #{like_operator} ?)", @value]
         end
 
         def build_statement_for_enum
@@ -217,6 +219,10 @@ module RailsAdmin
 
         def like_operator
           ar_adapter == 'postgresql' ? 'ILIKE' : 'LIKE'
+        end
+        
+        def not_like_operator
+          ar_adapter == 'postgresql' ? 'NOT ILIKE' : 'NOT LIKE'
         end
       end
     end
