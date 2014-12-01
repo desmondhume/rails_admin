@@ -95,7 +95,8 @@ module RailsAdmin
                 'monthNames' => self.class.month_names,
                 'monthNamesShort' => self.class.abbr_month_names,
                 'value' => formatted_date_value,
-                'changeYear' => true
+                'changeYear' => true,
+                'yearRange': '1930-2014'
               },
               'timepicker' => {
                 'amPmText' => meridian_indicator? ? %w(Am Pm) : ['', ''],
